@@ -5,18 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield("title")</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    {{-- css --}}
     <link rel="stylesheet" href="{{ asset("assets/style.css")}}">
 
+    {{-- bootstarp --}}
+    <link rel="stylesheet" href="{{ asset("assets/bootstrap/css/bootstrap.min.css")}}">
+
+    {{-- font awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
-<body>
+<body class="body">
     <div class="container">
-    <header class="d-flex justify-content-center py-3">
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route("indexAddname")}}" class="nav-link">Users</a></li>
-            <li class="nav-item"><a href="{{ route("indexBlog")}}" class="nav-link">Blogs</a></li>
-            <li class="nav-item"><a href="{{ route("logout") }}" class="nav-link">Logout</a></li>
-        </ul>
+    <header class="">
+        <nav class="mb-3">
+            <button class="btn-hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h2>My Webpage</h2>
+            <ul>
+                <li><a href="{{ route("indexAddname")}}">Addnames</a></li>
+                <li><a href="{{ route("indexBlog")}}">Blogs</a></li>
+                <li><a href="#">Todolists</a></li>
+                <li><a href="#">About Me</a></li>
+                <li><a href="{{ route("logout")}}" class="btn-signout">Logout</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section>
@@ -24,7 +39,16 @@
     </section>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ asset("assets/bootstrap/js/bootstrap.min.js")}}"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".btn-hamburger").on("click", function() {
+                $("nav ul").toggleClass("nav-active")
+            })
+        })
+    </script>
 </body>
 </html>
